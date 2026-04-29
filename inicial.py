@@ -1,13 +1,15 @@
 opcion = 0
 saldo = 10000
+datoConsumido= 50000
 
-while opcion != 4:
+while opcion != 5:
 
     print("\n--- MENÚ PRINCIPAL ---")
     print("1. Consultar saldo")
     print("2. Ver promociones")
     print("3. Recargar saldo")
     print("4. Salir")
+    print("5. Datos consumidos")
 
     opcion = int(input("Seleccione una opción: "))
 
@@ -26,6 +28,9 @@ while opcion != 4:
 
     elif opcion == 4:
         print("\nGracias por comunicarse. ¡Hasta luego!")
+
+    elif opcion == 5:
+        print("\nLos datos consumidos son", datoConsumido)
 
     else:
         print("Opción inválida. Intente nuevamente.")
