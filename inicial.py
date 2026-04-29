@@ -1,5 +1,10 @@
 opcion = 0
 saldo = 10000
+recargas = 0
+MAX_RECARGAS = 3
+operacion= 0
+if opcion ==1:
+    operacion +=1
 
 while opcion != 5:
 
@@ -24,20 +29,27 @@ while opcion != 5:
         print("- 30% de descuento en datos móviles")
 
     elif opcion == 3:
-        monto = int(input("Ingrese monto a recargar: "))
-        if monto <= 0:
-            print("Monto inválido. La recarga debe ser mayor a $0 intente nuevamente.")
-            continue
+        if recargas >= MAX_RECARGAS:
+            print("Has alcanzado el límite de recargas. No puedes recargar más.")
+        else:
+           monto = int(input("Ingrese monto a recargar: "))
+           if monto <= 0:
+              print("Monto inválido. La recarga debe ser mayor a $0 intente nuevamente.")
+              continue
         saldo = saldo + monto
+        recargas += 1
         print("Recarga exitosa. Nuevo saldo: $", saldo)
 
 
     elif opcion == 4:
         print("Datos consumidos: 2GB")
+        print("- datos móviles: 500 MB")
+        print("- Wi-Fi: 1 GB")
 
 
     elif opcion == 5:
         print("\nGracias por comunicarse. ¡Hasta luego!")
+        print("cantidad de operaciones realizadas: ", operacion)
 
     else:
         print("Opción inválida. Intente nuevamente.")
