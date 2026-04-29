@@ -1,9 +1,12 @@
 opcion = 0
 saldo = 10000
 datos = 0
+operaciones = 0
 
 while opcion != 5:
 
+    operaciones = operaciones + 1
+    
     print("\n--- MENÚ PRINCIPAL ---")
     print("1. Consultar saldo")
     print("2. Ver promociones")
@@ -35,4 +38,5 @@ while opcion != 5:
     elif opcion == 4:
         print("Sus datos consumidos es de ",datos)
     elif opcion == 5:
+        print("Usted realizo",operaciones,"operaciones")
         print("\nGracias por comunicarse. ¡Hasta luego!")
