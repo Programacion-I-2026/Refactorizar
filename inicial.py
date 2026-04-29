@@ -2,6 +2,9 @@ opcion = 0
 saldo = 10000
 contador = 0
 
+recargas_realizadas = 0
+max_recargas = 4
+
 while opcion != 5:
 
     print("\n--- MENÚ PRINCIPAL ---")
@@ -29,13 +32,18 @@ while opcion != 5:
         contador += 1
 
     elif opcion == 4:
-        monto = int(input("Ingrese monto a recargar: "))
+        if recargas_realizadas >= max_recargas:
+            print("Has alcanzado el límite de recargas permitidas")
+        else:
+            monto = int(input("Ingrese monto a recargar: "))
+
         if monto <= 0:
             print("Opción inválida, intente nuevamente.")
         else:
             saldo = saldo + monto
+            recargas_realizadas += 1
+            contador += 1
             print("Recarga exitosa. Nuevo saldo: $", saldo)
-        contador += 1
 
     elif opcion == 5:
         print("\nGracias por comunicarse. ¡Hasta luego!")
