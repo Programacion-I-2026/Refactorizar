@@ -22,8 +22,11 @@ while opcion != 4:
             print("- 30% de descuento en datos móviles")
         case 3:
             monto = int(input("Ingrese monto a recargar: "))
-            saldo = saldo + monto
-            print("Recarga exitosa. Nuevo saldo: $", saldo)
+            if monto > 0:
+                saldo = saldo + monto
+                print("Recarga exitosa. Nuevo saldo: $", saldo)
+            else:
+                print("porfavor ingrese un numero positivo")
         case 4:
             print("\nActualmente consumiste", datosCons, "datos") 
         case 5:
