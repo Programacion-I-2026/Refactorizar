@@ -2,6 +2,7 @@ opcion = 0
 saldo = 10000
 dat_consu = 100
 cont = 0
+rec = 0
 
 while opcion != 5:
     print("\n--- MENÚ PRINCIPAL ---")
@@ -24,6 +25,9 @@ while opcion != 5:
         if monto < 0:
             print("Monto incorrecto, ingresar numero mayor a 0")
             continue
+        if rec >= 3:
+            print("Maximo de recargos completos,vuelve a hacer otra operacion")
+            break
         saldo = saldo + monto
         print("Recarga exitosa. Nuevo saldo: $", saldo)
     
@@ -35,5 +39,6 @@ while opcion != 5:
     else:
         print("Opción inválida. Intente nuevamente.")
     cont = cont + 1
+    rec = rec + 1
     
 print(f"Hiciste: {cont} operaciones")
