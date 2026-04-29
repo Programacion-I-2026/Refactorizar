@@ -2,6 +2,7 @@ opcion = 0
 saldo = 10000
 datos = 0
 operaciones = 0
+recargas = 3
 
 while opcion != 5:
 
@@ -32,8 +33,12 @@ while opcion != 5:
         if monto <= 0 :
             print("No se puede recargar saldo negativo")
         else:
-            saldo = saldo + monto
-            print("Recarga exitosa. Nuevo saldo: $", saldo)
+            recargas = recargas - 1
+            if recargas >= 0:
+                saldo = saldo + monto
+                print("Recarga exitosa(Recargas disponibles",recargas,"). Nuevo saldo: $", saldo)
+            else:
+                print("Recargas agotadas. Operacion cancelada")
 
     elif opcion == 4:
         print("Sus datos consumidos es de ",datos)
