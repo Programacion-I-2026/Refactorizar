@@ -11,6 +11,10 @@ while opcion != 5:
     print("5. Salir")
 
     opcion = int(input("Seleccione una opción: "))
+    if opcion < 1 or opcion > 5:
+        print("Opción inválida. intente nuevamente.")
+        continue    
+
 
     if opcion == 1:
         print("\nSu saldo actual es: $", saldo)
@@ -22,6 +26,10 @@ while opcion != 5:
 
     elif opcion == 3:
         monto = int(input("Ingrese monto a recargar: "))
+
+        if monto <= 0:
+            print("Monto inválido. La recarga debe ser mayor a $0.")
+            continue
         saldo = saldo + monto
         print("Recarga exitosa. Nuevo saldo: $", saldo)
 
