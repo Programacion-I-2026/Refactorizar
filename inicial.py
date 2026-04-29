@@ -1,6 +1,6 @@
 opcion = 0
 saldo = 10000
-datos_consumidos = 1500  # valor fijo
+datos_consumidos = 1500
 
 while opcion != 5:
 
@@ -13,6 +13,10 @@ while opcion != 5:
 
     opcion = int(input("Seleccione una opción: "))
 
+    if opcion < 1 or opcion > 5:
+        print("Opción inválida. Intente nuevamente.")
+        continue
+
     if opcion == 1:
         print("\nSu saldo actual es: $", saldo)
 
@@ -23,14 +27,15 @@ while opcion != 5:
 
     elif opcion == 3:
         monto = int(input("Ingrese monto a recargar: "))
-        saldo = saldo + monto
-        print("Recarga exitosa. Nuevo saldo: $", saldo)
+
+        if monto <= 0:
+            print("Error: el monto debe ser mayor a 0")
+        else:
+            saldo = saldo + monto
+            print("Recarga exitosa. Nuevo saldo: $", saldo)
 
     elif opcion == 4:
         print("\nDatos consumidos:", datos_consumidos, "MB")
 
     elif opcion == 5:
         print("\nGracias por comunicarse. ¡Hasta luego!")
-
-    else:
-        print("Opción inválida. Intente nuevamente.")
