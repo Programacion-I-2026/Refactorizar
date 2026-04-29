@@ -2,7 +2,7 @@ opcion = 0
 saldo = 10000
 datoConsumido= 50000
 
-while opcion != 5:
+while opcion != 4:
 
     print("\n--- MENÚ PRINCIPAL ---")
     print("1. Consultar saldo")
@@ -23,8 +23,12 @@ while opcion != 5:
 
     elif opcion == 3:
         monto = int(input("Ingrese monto a recargar: "))
-        saldo = saldo + monto
-        print("Recarga exitosa. Nuevo saldo: $", saldo)
+        if monto > 0:
+            saldo = saldo + monto
+            print("Recarga exitosa. Nuevo saldo: $", saldo)
+        else:
+            print("Ingrese un saldo positivo porfavor.")
+
     elif opcion == 4:
         print("\nGracias por comunicarse. ¡Hasta luego!")
 
