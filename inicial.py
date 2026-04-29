@@ -3,6 +3,9 @@ saldo = 10000
 datos_consumidos = 1500
 contador = 0
 
+recargas_realizadas = 0
+max_recargas = 4
+
 while opcion != 5:
 
     print("\n--- MENÚ PRINCIPAL ---")
@@ -29,14 +32,19 @@ while opcion != 5:
         contador += 1
 
     elif opcion == 3:
-        monto = int(input("Ingrese monto a recargar: "))
 
-        if monto <= 0:
-            print("Error: el monto debe ser mayor a 0")
+        if recargas_realizadas >= max_recargas:
+            print("Ha alcanzado el límite de recargas permitidas.")
         else:
-            saldo = saldo + monto
-            print("Recarga exitosa. Nuevo saldo: $", saldo)
-            contador += 1
+            monto = int(input("Ingrese monto a recargar: "))
+
+            if monto <= 0:
+                print("Error: el monto debe ser mayor a 0")
+            else:
+                saldo = saldo + monto
+                recargas_realizadas += 1
+                contador += 1
+                print("Recarga exitosa. Nuevo saldo: $", saldo)
 
     elif opcion == 4:
         print("\nDatos consumidos:", datos_consumidos, "MB")
